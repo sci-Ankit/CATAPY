@@ -37,14 +37,14 @@ a = 0
 ## This code will be changed to include the path of working directory
 #MAIN_PATH = os.getcwd() 
 
-MAIN_PATH = "/media/sf_Machine_-_shared_folder/Catapy/examples/hepo_1"
+MAIN_PATH = "/media/sf_Machine_-_shared_folder/Catapy/examples/SrTiO3_slabs/SLAB_110/O_on_top"
 
 #########
 
 
 ############
-a_POSCAR_FPATH = "/media/sf_Machine_-_shared_folder/Catapy/examples/hepo_1/POSCAR"
-a_ADSOR_FPATH = "/media/sf_Machine_-_shared_folder/Catapy/examples/hepo_1/ADSOR"
+a_POSCAR_FPATH = "/media/sf_Machine_-_shared_folder/Catapy/examples/SrTiO3_slabs/SLAB_110/O_on_top/POSCAR"
+a_ADSOR_FPATH = "/media/sf_Machine_-_shared_folder/Catapy/examples/SrTiO3_slabs/SLAB_110/O_on_top/ADSOR"
 
 tmp = MAIN_PATH + "/Generated_files"
 

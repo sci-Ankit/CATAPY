@@ -47,6 +47,7 @@ def main(PRINT_PATH,POSCAR_FPATH, ADSOR_FPATH):
     head_values = head_reader(ADSOR_FPATH,0)
     count = count_atoms(head_values)
     tprint("count_atoms",count)
+    ## [("H",1),("O",1)]
 
     head_values_POSCAR = head_reader(POSCAR_FPATH,5)
     count_pos = count_atoms(head_values_POSCAR)

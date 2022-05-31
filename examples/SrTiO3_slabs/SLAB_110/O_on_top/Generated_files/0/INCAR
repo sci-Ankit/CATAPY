@@ -1,0 +1,35 @@
+# Relaxation
+
+SYSTEM = VS2_Suercell
+PREC = Normal       ######### for accuracy
+ISTART = 0              ########### start from scratch
+ISPIN = 2               #########spin polarisationi(collinear)
+ALGO = FAST
+
+####Ionic Relaxation
+IBRION = 1             ######ionic relaxation(CG algorithm)
+ISIF = 2               #######calculate  forces and stress tensor
+NSW = 500               ########no. of ionic step
+EDIFF = 1e-4            #### convergence parameter
+EDIFFG = -1e-3          ######10times of ediff convergenceparameter
+
+
+######Electronic Optimization
+NELM = 60               #########no. of electronic step
+ENCUT = 500            #######energy cutoff in eV
+ISMEAR = 0             #####smearing parameter
+SIGMA = 0.05           ######sigma parameter
+
+####################################
+
+LORBIT = 10            ###for DOSCAR and PROcAR
+NEDOS = 500             ######gridpoint for dos calculation
+LWAVE = .TRUE.        #########for wavefunction
+LSORBIT = .FALSE.      ######for spinorbit coupling
+IVDW = 11             #########vanderwalls interaction
+#SYMPREC = 1e-6        ####### accuracy of position
+#LVTOT = .TRUE.       ######## work function calculation
+#MAGMOM = 1*1.0 1*0.0
+
+LWAVE  =  .FALSE.
+LCHARG  =  .FALSE. 
