@@ -1,0 +1,33 @@
+#!/bin/bash
+#PBS -o logfile.log
+#PBS -e errorfile.err
+#PBS -l walltime=23:59:00
+#PBS -l select=2:ncpus=40
+tpdir=`echo $PBS_JOBID | cut -f 1 -d .`  ## Job ID
+core=80
+# name of to the file is provided
+#tempdir=$HOME/scratch/job$tpdir	      ## Temp dir
+#mkdir -p $tempdir
+cd $PBS_O_WORKDIR
+#cp -R $PBS_O_WORKDIR/* .
+log_file=$HOME/scratch/logfile
+printf "\n $PBS_JOBID , \t $PBS_O_WORKDIR , \t $core" >> $log_file
+#module load anaconda3_2021
+#python generator.py
+
+for i in NN NNH NNH2 N NH NH2
+do
+cd simulation
+cd $i
+cp ../../inputs/* .
+mv run run-$i
+echo "$i  running on $core"
+mpirun -n $core /lfs/sware/vasp.5.4.4/bin/vasp_std
+
+echo "$i job completed \n"
+cd ..
+cd ..
+done 
+
+
+

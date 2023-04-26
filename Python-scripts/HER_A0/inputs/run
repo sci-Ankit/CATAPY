@@ -1,0 +1,35 @@
+#!/bin/bash
+#PBS -o logfile.log
+#PBS -e errorfile.err
+#PBS -l walltime=23:59:00
+#PBS -l select=2:ncpus=40
+tpdir=`echo $PBS_JOBID | cut -f 1 -d .`  ## Job ID
+core=80
+# name of to the file is provided
+#tempdir=$HOME/scratch/job$tpdir	      ## Temp dir
+#mkdir -p $tempdir
+cd $PBS_O_WORKDIR
+#cp -R $PBS_O_WORKDIR/* .
+log_file=$HOME/scratch/logfile
+printf "\n $PBS_JOBID , \t $PBS_O_WORKDIR , \t $core" >> $log_file
+
+mkdir job$tpdir
+cp KPOINTS INCAR POSCAR logfile.log job$tpdir/
+
+
+mpirun -n $core /lfs/sware/vasp.5.4.4/bin/vasp_std
+
+err_file=error_$tpdir
+>> $err_file
+printf $err_file >> $err_file
+printf '\n------------------\nThis is the error output\n----------------\n----------------\n' >> $err_file
+cat errorfile.err >>  $err_file
+printf '\n\n --------------------\nThis the OUTCAR_FILE\n---------------\n----------------\n' >> $err_file
+tail -100 logfile.log >> $err_file
+>> err_last
+cp $err_file err_last
+#cp ../job$tpdir/* $PBS_O_WORKDIR/.
+
+cp $err_file CONTCAR job$tpdir/
+rm $err_file
+
