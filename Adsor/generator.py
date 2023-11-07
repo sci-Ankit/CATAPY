@@ -1,5 +1,5 @@
 from poscar_i_o import *
-from nrr import molecules
+from NRR import molecules
 import numpy as np
 import os
 import copy
@@ -114,8 +114,7 @@ def different_Site(molecules,poscar_data1,site):
 
 
 sitedata = [
-["top",[0.66719,0.33459,0.42294],1.6,1],
-["bri",[0.5,0.5,0.42300],1.4,1],
+["NRR",[0.5,0.5,0.5],0.0,1],
 ]
 
 for site_adsor in sitedata:

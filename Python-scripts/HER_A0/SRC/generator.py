@@ -116,6 +116,9 @@ def different_Site(molecules,poscar_data1,site):
 sitedata = [
 ["top",[0.66719,0.33459,0.42294],1.6,1],
 ["bri",[0.5,0.5,0.42300],1.4,1],
+["bri2",[0.15,0.5,0.42300],1.4,1],
+["bri3",[0.25,0.5,0.42300],1.4,1],
+["bri4",[0.45,0.5,0.42300],1.4,1],
 ]
 
 for site_adsor in sitedata:
