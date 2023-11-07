@@ -4,6 +4,19 @@ import numpy as np
 import os
 import copy
 
+import sys 
+
+if len(sys.argv) != 4:
+    print("Please provide two numbers as command line arguments.")
+else:
+    num1 = float(sys.argv[1])
+    num2 = float(sys.argv[2])
+    num3 = float(sys.argv[3])
+
+    print(f"First number: {num1}")
+    print(f"Second number: {num2}")
+    print(f"Third number: {num3}")
+
 
 def lattice_inverse(poscar_data):
     lattice_vector_array = np.array(poscar_data["lattice_vectors"])    
@@ -114,7 +127,7 @@ def different_Site(molecules,poscar_data1,site):
 
 
 sitedata = [
-["HER",[0.5,0.5,0.5],0.0,1],
+["HER",[num1,num2,num3],0.0,1],
 ]
 
 for site_adsor in sitedata:
