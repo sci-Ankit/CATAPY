@@ -6,16 +6,19 @@ import copy
 
 import sys 
 
-if len(sys.argv) != 4:
-    print("Please provide two numbers as command line arguments.")
-else:
-    num1 = float(sys.argv[1])
-    num2 = float(sys.argv[2])
-    num3 = float(sys.argv[3])
 
-    print(f"First number: {num1}")
-    print(f"Second number: {num2}")
-    print(f"Third number: {num3}")
+num1 = float(sys.argv[1])
+num2 = float(sys.argv[2])
+num3 = float(sys.argv[3]) 
+dir1 = float(sys.argv[4])  
+num4 = float(sys.argv[5])
+num5 = float(sys.argv[6])
+num6 = float(sys.argv[7])
+dir2 = float(sys.argv[8])
+
+print(f"First number: {num1}")
+print(f"Second number: {num2}")
+print(f"Third number: {num3}")
 
 
 def lattice_inverse(poscar_data):
@@ -127,7 +130,12 @@ def different_Site(molecules,poscar_data1,site):
 
 
 sitedata = [
-["HER",[num1,num2,num3],1.00,1],
+["X_10_",[num1,num2,num3],1.00,dir1],
+["X_15_",[num1,num2,num3],1.50,dir1],
+["X_20_",[num1,num2,num3],2.00,dir1],
+["Y_10_",[num4,num5,num6],1.00,dir2],
+["Y_15_",[num4,num5,num6],1.50,dir2],
+["Y_20_",[num4,num5,num6],2.00,dir2],
 ]
 
 for site_adsor in sitedata:
